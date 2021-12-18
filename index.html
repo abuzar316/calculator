@@ -35,7 +35,8 @@
             font-size: 22px;
             font-weight: 600;
         }
-        #cal-screen{
+
+        #cal-screen {
             border: none;
             outline: none;
             width: 100%;
@@ -44,7 +45,8 @@
             font-size: 30px;
             font-weight: 600;
         }
-        #screen-2{
+
+        #screen-2 {
             border: none;
             outline: none;
             width: 100%;
@@ -59,26 +61,26 @@
         <div class="calculatoer">
             <input type="text" id="cal-screen">
             <div class="all-btn">
-                <div id="cal-btn"  class="btn btn-primary">%</div>
-                <div id="cal-btn"  class="btn btn-primary">/</div>
-                <div id="cal-btn"  class="btn btn-primary">C</div>
-                <div id="cal-btn"  class="btn btn-primary"><i class="fas fa-backspace"></i></div>
-                <div id="cal-btn"  class="btn btn-primary">7</div>
-                <div id="cal-btn"  class="btn btn-primary">8</div>
-                <div id="cal-btn"  class="btn btn-primary">9</div>
-                <div id="cal-btn"  class="btn btn-primary">*</div>
-                <div id="cal-btn"  class="btn btn-primary">4</div>
-                <div id="cal-btn"  class="btn btn-primary">5</div>
-                <div id="cal-btn"  class="btn btn-primary">6</div>
-                <div id="cal-btn"  class="btn btn-primary">-</div>
-                <div id="cal-btn"  class="btn btn-primary">1</div>
-                <div id="cal-btn"  class="btn btn-primary">2</div>
-                <div id="cal-btn"  class="btn btn-primary">3</div>
-                <div id="cal-btn"  class="btn btn-primary">+</div>
-                <div id="cal-btn"  class="btn btn-primary">CE</div>
-                <div id="cal-btn"  class="btn btn-primary">0</div>
-                <div id="cal-btn"  class="btn btn-primary">.</div>
-                <div id="cal-btn"  class="btn btn-primary">=</div>
+                <div id="cal-btn" class="btn btn-primary">%</div>
+                <div id="cal-btn" class="btn btn-primary">/</div>
+                <div id="cal-btn" class="btn btn-primary">C</div>
+                <div id="cal-btn" class="btn btn-primary"><i  class="fas fa-backspace"></i></div>
+                <div id="cal-btn" class="btn btn-primary">7</div>
+                <div id="cal-btn" class="btn btn-primary">8</div>
+                <div id="cal-btn" class="btn btn-primary">9</div>
+                <div id="cal-btn" class="btn btn-primary">*</div>
+                <div id="cal-btn" class="btn btn-primary">4</div>
+                <div id="cal-btn" class="btn btn-primary">5</div>
+                <div id="cal-btn" class="btn btn-primary">6</div>
+                <div id="cal-btn" class="btn btn-primary">-</div>
+                <div id="cal-btn" class="btn btn-primary">1</div>
+                <div id="cal-btn" class="btn btn-primary">2</div>
+                <div id="cal-btn" class="btn btn-primary">3</div>
+                <div id="cal-btn" class="btn btn-primary">+</div>
+                <div id="cal-btn" class="btn btn-primary">CE</div>
+                <div id="cal-btn" class="btn btn-primary">0</div>
+                <div id="cal-btn" class="btn btn-primary">.</div>
+                <div id="cal-btn" class="btn btn-primary">=</div>
 
             </div>
         </div>
@@ -89,23 +91,25 @@
         let calScreen = document.querySelector("#cal-screen");
         let allBtn = document.querySelectorAll("#cal-btn");
         let allValue = ""
-        for(x of allBtn){
-        //    console.log(x)
-            x.addEventListener("click" ,(e) =>{
+        for (x of allBtn) {
+            //    console.log(x)
+            x.addEventListener("click", (e) => {
                 btnText = e.target.innerText;
-                
-                console.log( allValue)
-                if(btnText == 'C'|| btnText == "CE"){
+               
+                if (btnText == 'C' || btnText == "CE") {
                     allValue = "";
                     calScreen.value = allValue;
                 }
-                else if(btnText == '='){
+                else if (btnText == '=') {
                     calScreen.value = eval(allValue);
-                   
-                }else{
+
+                } else if (btnText == '') {
+                    calScreen.value = calScreen.value.slice(0 , -1);
+                }
+                else {
                     allValue += btnText;
-                     calScreen.value = allValue;
-                    
+                    calScreen.value = allValue;
+
                 }
             })
         }
